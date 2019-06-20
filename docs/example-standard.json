@@ -1,0 +1,31 @@
+{
+  "nav": [
+    { "text": "Guide", "link": "/nav.01.guide/" },
+    { "text": "Api", "link": "/nav.02.api/" },
+    {
+      "text": "Other",
+      "items": [{ "text": "Sub", "link": "/nav.other/nav.sub/" }]
+    }
+  ],
+  "sidebar": {
+    "/nav.01.guide/": ["", "what", "how"],
+    "/nav.02.api/": [
+      "",
+      { "title": "Enums", "children": ["01.enums/member-type"] },
+      { "title": "Classes", "children": ["02.classes/member"] }
+    ],
+    "/nav.other/nav.sub/": ["", "navsub-doc", { "title": "Sub Sub", "children": ["sub-sub/sub-sub"] }],
+    "/": [
+      {
+        "title": "Folder",
+        "children": [
+          "folder/folder-doc",
+          {
+            "title": "Subfolder",
+            "children": ["folder/subfolder/subfolder-doc"]
+          }
+        ]
+      }
+    ]
+  }
+}

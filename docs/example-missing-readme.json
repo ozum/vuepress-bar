@@ -1,0 +1,4 @@
+{
+  "nav": [{ "text": "Guide", "link": "/nav.01.guide/" }],
+  "sidebar": { "/nav.01.guide/": [""] }
+}

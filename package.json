@@ -1,0 +1,43 @@
+{
+  "name": "vuepress-bar",
+  "version": "0.0.1",
+  "description": "VuePress sidebar and navbar generator based on file and directory structure. Focus your documents, not sidebar or navbar.",
+  "main": "lib/index.js",
+  "files": [
+    "/lib"
+  ],
+  "scripts": {
+    "test": "jest",
+    "prepublish": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozum/vuepress-bar.git"
+  },
+  "keywords": [
+    "vuepress",
+    "sidebar",
+    "navbar",
+    "menu",
+    "generator",
+    "automatic"
+  ],
+  "author": "Özüm Eldoğan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ozum/vuepress-bar/issues"
+  },
+  "homepage": "https://github.com/ozum/vuepress-bar#readme",
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "glob": "^7.1.4",
+    "lodash.escaperegexp": "^4.1.2",
+    "lodash.sortby": "^4.7.0",
+    "lodash.startcase": "^4.4.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-meta": "0.0.1"
+  }
+}
