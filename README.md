@@ -30,8 +30,8 @@ const barConfig = getConfig(`${__dirName}/..`)
 
 module.exports = {
   themeConfig: {
-    nav: {  { text: 'External', link: 'https://google.com' }, ...barConfig.nav }
-    sidebar: ["custom.md", ...barConfig.sidebar],
+    nav: [{ text: 'External', link: 'https://google.com' }, ...barConfig.nav]
+    sidebar: ...barConfig.sidebar,
   }
 };
 ```
