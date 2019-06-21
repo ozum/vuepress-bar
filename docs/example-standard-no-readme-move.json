@@ -10,7 +10,8 @@
   "sidebar": {
     "/nav.01.guide/": ["", "what", "how"],
     "/nav.02.api/": [
-      { "title": "Enums", "children": ["", "01.enums/member-type"] },
+      "",
+      { "title": "Enums", "children": ["01.enums/member-type"] },
       { "title": "Classes", "children": ["02.classes/member"] }
     ],
     "/nav.other/nav.sub/": ["", "navsub-doc", { "title": "Sub Sub", "children": ["sub-sub/sub-sub"] }],

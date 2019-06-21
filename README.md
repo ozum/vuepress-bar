@@ -42,6 +42,8 @@ module.exports = {
 - **Custom sort:** Prefix directories with numbers, or add `order` meta to files such as `01.guide`
 - **Multiple Sidebars**
 - **No configuration**
+- Adds README.md to the first available group like VuePress web site. (May be disabled by options)
+- Possible to pass parameters in directory names. (See advanced example below.)
 
 # Examples
 
@@ -65,10 +67,12 @@ module.exports = {
   ],
   sidebar: {
     '/nav.01.guide/': [ '' ],
-    '/nav.02.api/': [ '', { title: 'Classes', children: [ 'classes/member' ] } ]
+    '/nav.02.api/': [ { title: 'Classes', children: [ '', 'classes/member' ] } ]
   }
 }
 ```
+
+- Readme is moved into first group: `'/nav.02.api/': [ { title: 'Classes', children: [ '', 'classes/member' ] } ]` instead of `'/nav.02.api/': [ '', { title: 'Classes', children: [ 'classes/member' ] } ]`
 
 ## Without Navbar
 
@@ -95,17 +99,45 @@ module.exports = {
 };
 ```
 
+## Advanced
+
+It is possible to pass sidebar parameters in directory names. You may pass following parameters after double dash `--` separated by comma:
+
+- `nc` sets `collapsable` to `false`.
+- `dX` sets `sidebarDepth` to `X`.
+
+```
+|- docs/
+  |- 01.guide--nc,d2/
+    |- README.md
+```
+
+```js
+{
+  nav: [],
+  sidebar: [
+    {
+      title: "Guide",
+      collapsable: false,
+      sidebarDepth: 1,
+      children: ["01.guide--nc,d2/"]
+    },
+  ]
+};
+```
+
 # Notes
 
 - VuePress requires `README.md` as default file in a `navbar` link. Forgetting `README.md` would skip that creation of that navbar item.
 
 # API
 
-| Param            | Type    | Default | Description                                                         |
-| ---------------- | ------- | ------- | ------------------------------------------------------------------- |
-| stripNumbers     | Boolean | `true`  | Remove number prefixes from directory names where it helps sorting. |
-| maxLevel         | Number  | `2`     | Maximum level of recursion for subdirectory traversing.             |
-| navPrefix        | String  | `nav`   | Prefix for directories for navbar and mulitple sidebars.            |
-| skipEmptySidebar | Boolean | `true`  | Do not add item to sidebar if directory is empty.                   |
-| skipEmptyNavbar  | Boolean | `true`  | Do not add item to navbar if directory is empty.                    |
-| multipleSideBar  | Boolean | `true`  | Creates multiple sidebars if there are navbar items.                |
+| Param                 | Type    | Default | Description                                                                |
+| --------------------- | ------- | ------- | -------------------------------------------------------------------------- |
+| stripNumbers          | Boolean | `true`  | Remove number prefixes from directory names where it helps sorting.        |
+| maxLevel              | Number  | `2`     | Maximum level of recursion for subdirectory traversing.                    |
+| navPrefix             | String  | `nav`   | Prefix for directories for navbar and mulitple sidebars.                   |
+| skipEmptySidebar      | Boolean | `true`  | Do not add item to sidebar if directory is empty.                          |
+| skipEmptyNavbar       | Boolean | `true`  | Do not add item to navbar if directory is empty.                           |
+| multipleSideBar       | Boolean | `true`  | Creates multiple sidebars if there are navbar items.                       |
+| addReadMeToFirstGroup | Boolean | `true`  | Adds README.md into first group of sidebar. (vuepress website's behaviour) |
