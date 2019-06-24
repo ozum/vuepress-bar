@@ -15,7 +15,7 @@ const getConfig = require("vuepress-bar");
 
 module.exports = {
   themeConfig: {
-    ...getConfig(`${__dirName}/..`)
+    ...getConfig(`${__dirname}/..`)
   }
 };
 ```
