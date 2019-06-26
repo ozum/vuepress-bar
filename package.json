@@ -1,6 +1,6 @@
 {
   "name": "vuepress-bar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "VuePress sidebar and navbar generator based on file and directory structure. Focus your documents, not sidebar or navbar.",
   "main": "lib/index.js",
   "files": [
