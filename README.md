@@ -142,13 +142,16 @@ module.exports = {
 
 
 ### API
-| Param            | Type    | Default            | Description                                                                                                                                    |
-| ---------------- | ------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| rootDir          | String  | `${ctx.sourceDir}` | Root directory where the documents are located.                                                                                                |
-| stripNumbers     | Boolean | `true`             | Remove number prefixes from directory names where it helps sorting.                                                                            |
-| maxLevel         | Number  | `2`                | Maximum level of recursion for subdirectory traversing.                                                                                        |
-| navPrefix        | String  | `nav`              | Prefix for directories for navbar and mulitple sidebars.                                                                                       |
-| skipEmptySidebar | Boolean | `true`             | Do not add item to sidebar if directory is empty.                                                                                              |
-| skipEmptyNavbar  | Boolean | `true`             | Do not add item to navbar if directory is empty.                                                                                               |
-| multipleSideBar  | Boolean | `true`             | Creates multiple sidebars if there are navbar items.                                                                                           |
+| Param            | Type    | Default            | Description                                                                                                                                     |
+| ---------------- | ------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| rootDir          | String  | `${ctx.sourceDir}` | Root directory where the documents are located.                                                                                                 |
+| stripNumbers     | Boolean | `true`             | Remove number prefixes from directory names where it helps sorting.                                                                             |
+| maxLevel         | Number  | `2`                | Maximum level of recursion for subdirectory traversing.                                                                                         |
+| navPrefix        | String  | `nav`              | Prefix for directories for navbar and mulitple sidebars.                                                                                        |
+| skipEmptySidebar | Boolean | `true`             | Do not add item to sidebar if directory is empty.                                                                                               |
+| skipEmptyNavbar  | Boolean | `true`             | Do not add item to navbar if directory is empty.                                                                                                |
+| multipleSideBar  | Boolean | `true`             | Creates multiple sidebars if there are navbar items.                                                                                            |
 | setHomepage      | String  | `hide`             | `hide`: Hide homepage link in sidebar.<br>`toGroup`: Adds README.md into first group of sidebar.<br>`top`: Show homepage link at top of sidebar |
+| pinyinNav        | Boolean | `false`            | Do not translate chinese nav to pinyin.                                                                                                         |
+
+> Tips: pinyinNav: true,Should use with [vuepress-plugin-permalink-pinyin](https://github.com/viko16/vuepress-plugin-permalink-pinyin). 
