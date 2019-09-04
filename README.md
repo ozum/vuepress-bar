@@ -1,42 +1,29 @@
-# vuepress-bar
+# vuepress-plugin-autobar
 
 VuePress sidebar and navbar generator based on file and directory structure. Focus your documents, not sidebar or navbar.
 
-# Synopsis
+## 1. Synopsis
 
-Just point `getConfig` function to `docs` directory:
-
-## Just Require and Use
-
-**.vuepress/config.js**
-
-```js
-const getConfig = require("vuepress-bar");
-
-module.exports = {
-  themeConfig: {
-    ...getConfig(`${__dirName}/..`)
-  }
-};
+### Install
+```bash
+ # npm install -D vuepress-plugin-autobar # Waitting author accepted the PR.
+ npm install -D boboidream/vuepress-bar
 ```
 
-## ... or Combine With Your Links
-
-**.vuepress/config.js**
+### Usage
+Add `vuepress-plugin-autobar` in your site or theme config file. See [official docs on using a plugin](https://vuepress.vuejs.org/plugin/using-a-plugin.html)
 
 ```js
-const getConfig = require("vuepress-bar");
-const barConfig = getConfig(`${__dirName}/..`)
+// .vuepress/config.js
+// or
+// .vuepress/theme/index.js
 
 module.exports = {
-  themeConfig: {
-    nav: [{ text: 'External', link: 'https://google.com' }, ...barConfig.nav]
-    sidebar: barConfig.sidebar,
-  }
-};
+  plugins: ['autobar']
+}
 ```
 
-# Features
+## 2. Features
 
 - **Creates navbar & sidebar:** Add `navbar` prefix to your directories such as `nav.guide` or `nav.01.guide`
 - **Custom sort:** Prefix directories with numbers, or add `order` meta to files such as `01.guide`
@@ -45,9 +32,9 @@ module.exports = {
 - Adds README.md to the first available group like VuePress web site. (May be disabled by options)
 - Possible to pass parameters in directory names. (See advanced example below.)
 
-# Examples
+## 3. Examples
 
-## With Navbar
+### With Navbar
 
 ```
 |- docs/
@@ -74,7 +61,7 @@ module.exports = {
 
 - Readme is moved into first group: `'/nav.02.api/': [ { title: 'Classes', children: [ '', 'classes/member' ] } ]` instead of `'/nav.02.api/': [ '', { title: 'Classes', children: [ 'classes/member' ] } ]`
 
-## Without Navbar
+### Without Navbar
 
 ```
 |- docs/
@@ -99,8 +86,8 @@ module.exports = {
 };
 ```
 
-## Advanced
-
+## 4. Advanced
+### Conventions
 It is possible to pass sidebar parameters in directory names. You may pass following parameters after double dash `--` separated by comma:
 
 - `nc` sets `collapsable` to `false`.
@@ -126,18 +113,42 @@ It is possible to pass sidebar parameters in directory names. You may pass follo
 };
 ```
 
-# Notes
-
+**Notes**
 - VuePress requires `README.md` as default file in a `navbar` link. Forgetting `README.md` would skip that creation of that navbar item.
 
-# API
+### Advanced Options
+```js
+// .vuepress/config.js
+// or
+// .vuepress/theme/index.js
+const autobar_options = {
+  rootDir: 'xxx',
+  stripNumbers = true,
+  maxLevel = 2,
+  navPrefix = "nav",
+  skipEmptySidebar = true,
+  skipEmptyNavbar = true,
+  multipleSideBar = true,
+  setHomepage = 'hide' | 'toGroup' | 'top'
+};
 
-| Param                 | Type    | Default | Description                                                                |
-| --------------------- | ------- | ------- | -------------------------------------------------------------------------- |
-| stripNumbers          | Boolean | `true`  | Remove number prefixes from directory names where it helps sorting.        |
-| maxLevel              | Number  | `2`     | Maximum level of recursion for subdirectory traversing.                    |
-| navPrefix             | String  | `nav`   | Prefix for directories for navbar and mulitple sidebars.                   |
-| skipEmptySidebar      | Boolean | `true`  | Do not add item to sidebar if directory is empty.                          |
-| skipEmptyNavbar       | Boolean | `true`  | Do not add item to navbar if directory is empty.                           |
-| multipleSideBar       | Boolean | `true`  | Creates multiple sidebars if there are navbar items.                       |
-| addReadMeToFirstGroup | Boolean | `true`  | Adds README.md into first group of sidebar. (vuepress website's behaviour) |
+module.exports = {
+  plugins: [
+    [ 'autobar', autobar_options ]
+  ]
+}
+```
+
+
+
+### API
+| Param            | Type    | Default            | Description                                                                                                                                    |
+| ---------------- | ------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| rootDir          | String  | `${ctx.sourceDir}` | Root directory where the documents are located.                                                                                                |
+| stripNumbers     | Boolean | `true`             | Remove number prefixes from directory names where it helps sorting.                                                                            |
+| maxLevel         | Number  | `2`                | Maximum level of recursion for subdirectory traversing.                                                                                        |
+| navPrefix        | String  | `nav`              | Prefix for directories for navbar and mulitple sidebars.                                                                                       |
+| skipEmptySidebar | Boolean | `true`             | Do not add item to sidebar if directory is empty.                                                                                              |
+| skipEmptyNavbar  | Boolean | `true`             | Do not add item to navbar if directory is empty.                                                                                               |
+| multipleSideBar  | Boolean | `true`             | Creates multiple sidebars if there are navbar items.                                                                                           |
+| setHomepage      | String  | `hide`             | `hide`: Hide homepage link in sidebar.<br>`toGroup`: Adds README.md into first group of sidebar.<br>`top`: Show homepage link at top of sidebar |
