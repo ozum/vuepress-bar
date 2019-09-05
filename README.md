@@ -139,6 +139,8 @@ module.exports = {
 }
 ```
 
+**tips**
+If you want to use simple links, maybe you will like [vuepress-plugin-rpurl](https://github.com/boboidream/vuepress-plugin-rpurl).
 
 
 ### API
