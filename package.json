@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-autobar",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "VuePress sidebar and navbar generator based on file and directory structure. Focus your documents, not sidebar or navbar.",
   "main": "lib/index.js",
   "files": [

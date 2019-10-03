@@ -1,20 +1,54 @@
 {
   "nav": [
-    { "text": "Guide", "link": "/nav.01.guide/" },
-    { "text": "Api", "link": "/nav.02.api/" },
+    {
+      "text": "Guide",
+      "link": "/nav.01.guide/"
+    },
+    {
+      "text": "Api",
+      "link": "/nav.02.api/"
+    },
     {
       "text": "Other",
-      "items": [{ "text": "Sub", "link": "/nav.other/nav.sub/" }]
+      "items": [
+        {
+          "text": "Sub",
+          "link": "/nav.other/nav.sub/"
+        }
+      ]
     }
   ],
   "sidebar": {
-    "/nav.01.guide/": ["", "what", "how"],
+    "/nav.01.guide/": [
+      "",
+      "how",
+      "what"
+    ],
     "/nav.02.api/": [
       "",
-      { "title": "Enums", "children": ["01.enums/member-type"] },
-      { "title": "Classes", "children": ["02.classes/member"] }
+      {
+        "title": "Enums",
+        "children": [
+          "01.enums/member-type"
+        ]
+      },
+      {
+        "title": "Classes",
+        "children": [
+          "02.classes/member"
+        ]
+      }
     ],
-    "/nav.other/nav.sub/": ["", "navsub-doc", { "title": "Sub Sub", "children": ["sub-sub/sub-sub"] }],
+    "/nav.other/nav.sub/": [
+      "",
+      "navsub-doc",
+      {
+        "title": "Sub Sub",
+        "children": [
+          "sub-sub/sub-sub"
+        ]
+      }
+    ],
     "/": [
       {
         "title": "Folder",
@@ -24,7 +58,9 @@
           "folder--nc,d1/folder-doc",
           {
             "title": "Subfolder",
-            "children": ["folder--nc,d1/subfolder/subfolder-doc"]
+            "children": [
+              "folder--nc,d1/subfolder/subfolder-doc"
+            ]
           }
         ]
       }
