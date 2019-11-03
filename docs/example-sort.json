@@ -1,0 +1,15 @@
+{
+  "nav": [],
+  "sidebar": [
+    "01-file",
+    {
+      "title": "Folder",
+      "children": ["02-folder/file"]
+    },
+    "03-file",
+    {
+      "title": "No Name",
+      "children": ["no-name/last"]
+    }
+  ]
+}

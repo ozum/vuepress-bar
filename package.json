@@ -38,6 +38,7 @@
     "lodash.sortby": "^4.7.0",
     "lodash.startcase": "^4.4.0",
     "markdown-it": "^8.4.2",
-    "markdown-it-meta": "0.0.1"
+    "markdown-it-meta": "0.0.1",
+    "transliteration": "^2.1.7"
   }
 }

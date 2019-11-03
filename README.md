@@ -130,14 +130,16 @@ It is possible to pass sidebar parameters in directory names. You may pass follo
 
 - VuePress requires `README.md` as default file in a `navbar` link. Forgetting `README.md` would skip that creation of that navbar item.
 
-# API
+# Options
 
-| Param                 | Type    | Default | Description                                                                |
-| --------------------- | ------- | ------- | -------------------------------------------------------------------------- |
-| stripNumbers          | Boolean | `true`  | Remove number prefixes from directory names where it helps sorting.        |
-| maxLevel              | Number  | `2`     | Maximum level of recursion for subdirectory traversing.                    |
-| navPrefix             | String  | `nav`   | Prefix for directories for navbar and mulitple sidebars.                   |
-| skipEmptySidebar      | Boolean | `true`  | Do not add item to sidebar if directory is empty.                          |
-| skipEmptyNavbar       | Boolean | `true`  | Do not add item to navbar if directory is empty.                           |
-| multipleSideBar       | Boolean | `true`  | Creates multiple sidebars if there are navbar items.                       |
-| addReadMeToFirstGroup | Boolean | `true`  | Adds README.md into first group of sidebar. (vuepress website's behaviour) |
+| Param                                | Type    | Default | Description                                                                                      |
+| ------------------------------------ | ------- | ------- | ------------------------------------------------------------------------------------------------ |
+| stripNumbers                         | Boolean | `true`  | Remove number prefixes from directory names where it helps sorting.                              |
+| maxLevel                             | Number  | `2`     | Maximum level of recursion for subdirectory traversing.                                          |
+| navPrefix                            | String  | `nav`   | Prefix for directories for navbar and mulitple sidebars.                                         |
+| skipEmptySidebar                     | Boolean | `true`  | Do not add item to sidebar if directory is empty.                                                |
+| skipEmptyNavbar                      | Boolean | `true`  | Do not add item to navbar if directory is empty.                                                 |
+| multipleSideBar                      | Boolean | `true`  | Create multiple sidebars if there are navbar items.                                              |
+| addReadMeToFirstGroup                | Boolean | `true`  | Add README.md into first group of sidebar. (vuepress website's behaviour)                        |
+| mixDirectoriesAndFilesAlphabetically | Boolean | `true`  | Add directories to alphabetic positions between files. (i.e. `01-file`, `02-folder`, `03-file` ) |
+| pinyinNav                            | Boolean | `false` | Translate chinese nav to pinyin.                                                                 |
