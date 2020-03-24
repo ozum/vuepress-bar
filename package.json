@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "test": "jest",
+    "release": "(git diff --quiet && git diff --staged --quiet && echo No files has been changed) || (npm run commit:add && git checkout master && git pull origin master && git commit --amend --no-edit && git push --follow-tags origin master && git push --tags && npm publish)",
     "prepublishOnly": "npm test"
   },
   "repository": {
