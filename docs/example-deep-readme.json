@@ -1,0 +1,4 @@
+{
+  "nav": [],
+  "sidebar": [{ "title": "Guide", "children": [{ "title": "Chapter 1", "children": ["01.guide/chapter-1/"] }] }]
+}

@@ -1,0 +1,1 @@
+Git does not store and create empty folders. This file is created here as a stub to let Git create this directory without a README.md.
