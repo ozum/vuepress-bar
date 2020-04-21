@@ -1,0 +1,36 @@
+{
+  "nav":[
+    {
+      "text":"Navbar2",
+      "items":[
+        {"text":"Vue","link":"/nav.20.navbar2/nav.01.vue/"},
+        {"text":"Pc","link":"/nav.20.navbar2/nav.02.PC/"}
+      ]
+    },
+    {
+      "text":"Navbar2 Copy",
+      "items":[
+        {"text":"Vue2","link":"/nav.20.navbar2 copy/nav.01.vue2/"},
+        {"text":"Pc2","link":"/nav.20.navbar2 copy/nav.02.PC2/"}
+      ]
+    }
+  ],
+  "sidebar":{
+    "/nav.20.navbar2/nav.01.vue/":[
+      {
+        "title":"Update Log",
+        "children":["","01.update_log/aa","01.update_log/bb","01.update_log/common"]
+      },
+      {"title":"Api","children":["10.api/4 copy"]}
+    ],
+    "/nav.20.navbar2/nav.02.PC/":[""],
+    "/nav.20.navbar2 copy/nav.01.vue2/":[
+      {
+        "title":"Update Log2",
+        "children":["","01.update_log2/aa","01.update_log2/bb","01.update_log2/common"]
+      },
+      {"title":"Api2","children":["10.api2/4 copy"]}
+    ],
+    "/nav.20.navbar2 copy/nav.02.PC2/":[""]
+  }
+}
