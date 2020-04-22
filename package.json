@@ -30,16 +30,17 @@
   },
   "homepage": "https://github.com/ozum/vuepress-bar#readme",
   "devDependencies": {
-    "jest": "^24.9.0",
-    "prettier": "^1.19.1"
+    "jest": "^25.4.0",
+    "prettier": "^2.0.5"
   },
   "dependencies": {
+    "caller-path": "^3.0.0",
     "glob": "^7.1.6",
     "inflection": "^1.12.0",
     "lodash.escaperegexp": "^4.1.2",
     "lodash.sortby": "^4.7.0",
     "markdown-it": "^10.0.0",
     "markdown-it-meta": "0.0.1",
-    "transliteration": "^2.1.7"
+    "transliteration": "^2.1.8"
   }
 }

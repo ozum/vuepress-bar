@@ -4,18 +4,27 @@ VuePress sidebar and navbar generator based on file and directory structure. Foc
 
 # Synopsis
 
-Just point `getConfig` function to `docs` directory:
-
-## Just Require and Use
+## Require
 
 **.vuepress/config.js**
 
 ```js
-const getConfig = require("vuepress-bar");
+const menuConfig = require("vuepress-bar")();                                 // Call directly with default values.
+const getConfig = require("vuepress-bar");                                    // Import as a function
+const { nav, sideBar } = require("vuepress-bar")(options);                    // With options
+const { nav, sideBar } = require("vuepress-bar")(`${__dirname}/..`, options); // Provide location of `.vuepress`.
+```
+
+## Use
+
+**.vuepress/config.js**
+
+```js
+const menuConfig = require("vuepress-bar")();
 
 module.exports = {
   themeConfig: {
-    ...getConfig(`${__dirname}/..`)
+    ...menuConfig
   }
 };
 ```
@@ -25,13 +34,12 @@ module.exports = {
 **.vuepress/config.js**
 
 ```js
-const getConfig = require("vuepress-bar");
-const barConfig = getConfig(`${__dirname}/..`)
+const { nav, sideBar } = require("vuepress-bar")();
 
 module.exports = {
   themeConfig: {
-    nav: [{ text: 'External', link: 'https://google.com' }, ...barConfig.nav]
-    sidebar: barConfig.sidebar,
+    nav: [{ text: 'pg-structure', link: 'https://www.pg-structure.com/' }, ...nav]
+    sidebar,
   }
 };
 ```
