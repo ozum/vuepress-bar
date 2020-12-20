@@ -4,38 +4,38 @@ VuePress sidebar and navbar generator based on file and directory structure. Foc
 
 # Synopsis
 
-## Require
-
-**.vuepress/config.js**
-
 ```js
-const menuConfig = require("vuepress-bar")();                                 // Call directly with default values.
-const getConfig = require("vuepress-bar");                                    // Import as a function
-const { nav, sideBar } = require("vuepress-bar")(options);                    // With options
-const { nav, sideBar } = require("vuepress-bar")(`${__dirname}/..`, options); // Provide location of `.vuepress`.
+//.vuepress/config.js
+const getConfig = require("vuepress-bar");
+
+const { nav, sideBar } = getConfig();
+
+module.exports = { themeConfig: { nav, sideBar } };
 ```
 
-## Use
+# Usage 
 
-**.vuepress/config.js**
+## 1. Get Menu & Bar Configuration
 
 ```js
-const menuConfig = require("vuepress-bar")();
-
-module.exports = {
-  themeConfig: {
-    ...menuConfig
-  }
-};
+// .vuepress/config.js
+const { nav, sideBar } = getConfig(options);                      // Use default location of `.vuepress`: `${__dirname}/..`
+const { nav, sideBar } = getConfig("path/to/.vuepress", options); // Provide location of `.vuepress` directory.
 ```
 
-## ... or Combine With Your Links
+## 2. Merge with VuePress Configuration
 
-**.vuepress/config.js**
+### Alternative 1: No Modification
 
 ```js
-const { nav, sideBar } = require("vuepress-bar")();
+// .vuepress/config.js
+module.exports = { themeConfig: { nav, sideBar } };
+```
 
+### Alternative 2: Modification
+
+```js
+// .vuepress/config.js
 module.exports = {
   themeConfig: {
     nav: [{ text: 'pg-structure', link: 'https://www.pg-structure.com/' }, ...nav]
@@ -53,7 +53,7 @@ module.exports = {
 - Adds README.md to the first available group like VuePress web site. (May be disabled by options)
 - Possible to pass parameters in directory names. (See advanced example below.)
 
-# Examples
+# Examples with Explanations
 
 ## With Navbar
 
