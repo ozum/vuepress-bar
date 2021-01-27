@@ -20,7 +20,7 @@ module.exports = { themeConfig: { nav, sideBar } };
 ```js
 // .vuepress/config.js
 const { nav, sideBar } = getConfig(options);                      // Use default location of `.vuepress`: `${__dirname}/..`
-const { nav, sideBar } = getConfig("path/to/.vuepress", options); // Provide location of `.vuepress` directory.
+const { nav, sideBar } = getConfig("path/to/.vuepress/..", options); // Point to *parent* dir of `.vuepress`.
 ```
 
 ## 2. Merge with VuePress Configuration

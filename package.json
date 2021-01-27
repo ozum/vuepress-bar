@@ -30,8 +30,8 @@
   },
   "homepage": "https://github.com/ozum/vuepress-bar#readme",
   "devDependencies": {
-    "jest": "^25.4.0",
-    "prettier": "^2.0.5"
+    "jest": "^25.5.4",
+    "prettier": "^2.2.1"
   },
   "dependencies": {
     "glob": "^7.1.6",
