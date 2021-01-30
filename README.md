@@ -8,9 +8,9 @@ VuePress sidebar and navbar generator based on file and directory structure. Foc
 //.vuepress/config.js
 const getConfig = require("vuepress-bar");
 
-const { nav, sideBar } = getConfig();
+const { nav, sidebar } = getConfig();
 
-module.exports = { themeConfig: { nav, sideBar } };
+module.exports = { themeConfig: { nav, sidebar } };
 ```
 
 # Usage 
@@ -19,8 +19,8 @@ module.exports = { themeConfig: { nav, sideBar } };
 
 ```js
 // .vuepress/config.js
-const { nav, sideBar } = getConfig(options);                      // Use default location of `.vuepress`: `${__dirname}/..`
-const { nav, sideBar } = getConfig("path/to/.vuepress/..", options); // Point to *parent* dir of `.vuepress`.
+const { nav, sidebar } = getConfig(options);                      // Use default location of `.vuepress`: `${__dirname}/..`
+const { nav, sidebar } = getConfig("path/to/.vuepress/..", options); // Point to *parent* dir of `.vuepress`.
 ```
 
 ## 2. Merge with VuePress Configuration
@@ -29,7 +29,7 @@ const { nav, sideBar } = getConfig("path/to/.vuepress/..", options); // Point to
 
 ```js
 // .vuepress/config.js
-module.exports = { themeConfig: { nav, sideBar } };
+module.exports = { themeConfig: { nav, sidebar } };
 ```
 
 ### Alternative 2: Modification
