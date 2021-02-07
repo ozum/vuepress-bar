@@ -44,14 +44,16 @@ module.exports = {
 };
 ```
 
+** See advanced section below for more advanced modifications such as overriding.
+
 # Features
 
 - **Creates navbar & sidebar:** Add `navbar` prefix to your directories such as `nav.guide` or `nav.01.guide`
 - **Custom sort:** Prefix directories with numbers, or add `order` meta to files such as `01.guide`
 - **Multiple Sidebars**
 - **No configuration**
-- Adds README.md to the first available group like VuePress web site. (May be disabled by options)
-- Possible to pass parameters in directory names. (See advanced example below.)
+- Adds README.md to the first available group like the VuePress web site. (Maybe disabled by options)
+- Pass parameters in directory names. (See advanced example below.)
 
 # Examples with Explanations
 
@@ -61,9 +63,9 @@ module.exports = {
 |- docs/
   |- .vuepress
   |- nav.01.guide/
-    |- README.md
+    |- README.md
   |- nav.02.api/
-    |- classes/
+    |- classes/
       |- member.md
 ```
 
@@ -88,9 +90,9 @@ module.exports = {
 |- docs/
   |- .vuepress
   |- 01.guide/
-    |- README.md
+    |- README.md
   |- 02.api/
-    |- classes/
+    |- classes/
       |- member.md
 ```
 
@@ -109,7 +111,9 @@ module.exports = {
 
 ## Advanced
 
-It is possible to pass sidebar parameters in directory names. You may pass following parameters after double dash `--` separated by comma:
+### Parameters
+
+It is possible to pass sidebar parameters in directory names. You may pass the following parameters after double dash `--` separated by a comma:
 
 - `nc` sets `collapsable` to `false`.
 - `dX` sets `sidebarDepth` to `X`.
@@ -117,7 +121,7 @@ It is possible to pass sidebar parameters in directory names. You may pass follo
 ```
 |- docs/
   |- 01.guide--nc,d2/
-    |- README.md
+    |- README.md
 ```
 
 ```js
@@ -134,6 +138,18 @@ It is possible to pass sidebar parameters in directory names. You may pass follo
 };
 ```
 
+### Override
+
+You may want to override generated navbar or sidebar. That is the reason why `vuepress-bar` isn't written as a plugin. You can override generated config. For example, you want to rename generated "Api" text to "API".
+
+```ts
+const { nav, sidebar } = getConfig();
+
+// Find item with text "Api" and change it to "API".
+nav.find(item => item.text === "Api").text = "API";
+```
+
+
 # Notes
 
 - VuePress requires `README.md` as default file in a `navbar` link. Forgetting `README.md` would skip that creation of that navbar item.
@@ -148,6 +164,6 @@ It is possible to pass sidebar parameters in directory names. You may pass follo
 | skipEmptySidebar                     | Boolean | `true`  | Do not add item to sidebar if directory is empty.                                                |
 | skipEmptyNavbar                      | Boolean | `true`  | Do not add item to navbar if directory is empty.                                                 |
 | multipleSideBar                      | Boolean | `true`  | Create multiple sidebars if there are navbar items.                                              |
-| addReadMeToFirstGroup                | Boolean | `true`  | Add README.md into first group of sidebar. (vuepress website's behaviour)                        |
-| mixDirectoriesAndFilesAlphabetically | Boolean | `true`  | Add directories to alphabetic positions between files. (i.e. `01-file`, `02-folder`, `03-file` ) |
+| addReadMeToFirstGroup                | Boolean | `true`  | Add README.md into first group of sidebar. (vuepress website's behaviour)                        |
+| mixDirectoriesAndFilesAlphabetically | Boolean | `true`  | Add directories to alphabetic positions between files. (i.e. `01-file`, `02-folder`, `03-file` ) |
 | pinyinNav                            | Boolean | `false` | Translate chinese nav to pinyin.                                                                 |
