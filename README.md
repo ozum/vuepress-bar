@@ -138,9 +138,11 @@ It is possible to pass sidebar parameters in directory names. You may pass the f
 };
 ```
 
-### Override
+### Overriding
 
-You may want to override generated navbar or sidebar. That is the reason why `vuepress-bar` isn't written as a plugin. You can override generated config. For example, you want to rename generated "Api" text to "API".
+You may want to override generated navbar or sidebar. That is the reason why `vuepress-bar` isn't written as a plugin. You can override generated config.
+
+**Rename "Api" to "API"**
 
 ```ts
 const { nav, sidebar } = getConfig();
@@ -149,6 +151,16 @@ const { nav, sidebar } = getConfig();
 nav.find(item => item.text === "Api").text = "API";
 ```
 
+**Filter Some Entries**
+
+```ts
+module.exports = {
+  themeConfig: {
+    nav,
+    sidebar: sidebar.filter((i) => i.title !== "Node Modules"),
+  }
+};
+```
 
 # Notes
 
