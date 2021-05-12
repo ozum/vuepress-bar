@@ -13,13 +13,13 @@ const { nav, sidebar } = getConfig();
 module.exports = { themeConfig: { nav, sidebar } };
 ```
 
-# Usage 
+# Usage
 
 ## 1. Get Menu & Bar Configuration
 
 ```js
 // .vuepress/config.js
-const { nav, sidebar } = getConfig(options);                      // Use default location of `.vuepress`: `${__dirname}/..`
+const { nav, sidebar } = getConfig(options); // Use default location of `.vuepress`: `${__dirname}/..`
 const { nav, sidebar } = getConfig("path/to/.vuepress/..", options); // Point to *parent* dir of `.vuepress`.
 ```
 
@@ -44,7 +44,7 @@ module.exports = {
 };
 ```
 
-** See advanced section below for more advanced modifications such as overriding.
+\*\* See advanced section below for more advanced modifications such as overriding.
 
 # Features
 
@@ -54,6 +54,7 @@ module.exports = {
 - **No configuration**
 - Adds README.md to the first available group like the VuePress web site. (Maybe disabled by options)
 - Pass parameters in directory names. (See advanced example below.)
+- Fİlter based on Front Matter meta data.
 
 # Examples with Explanations
 
@@ -148,7 +149,7 @@ You may want to override generated navbar or sidebar. That is the reason why `vu
 const { nav, sidebar } = getConfig();
 
 // Find item with text "Api" and change it to "API".
-nav.find(item => item.text === "Api").text = "API";
+nav.find((item) => item.text === "Api").text = "API";
 ```
 
 **Filter Some Entries**
@@ -158,8 +159,16 @@ module.exports = {
   themeConfig: {
     nav,
     sidebar: sidebar.filter((i) => i.title !== "Node Modules"),
-  }
+  },
 };
+```
+
+**Filter Some Entries with Meta Data**
+
+Use YAML meta data (Front Matter).
+
+```ts
+const { nav, sidebar } = getConfig({ filter: (meta) => { meta.draft !== true } });
 ```
 
 # Notes
@@ -168,14 +177,15 @@ module.exports = {
 
 # Options
 
-| Param                                | Type    | Default | Description                                                                                      |
-| ------------------------------------ | ------- | ------- | ------------------------------------------------------------------------------------------------ |
-| stripNumbers                         | Boolean | `true`  | Remove number prefixes from directory names where it helps sorting.                              |
-| maxLevel                             | Number  | `2`     | Maximum level of recursion for subdirectory traversing.                                          |
-| navPrefix                            | String  | `nav`   | Prefix for directories for navbar and mulitple sidebars.                                         |
-| skipEmptySidebar                     | Boolean | `true`  | Do not add item to sidebar if directory is empty.                                                |
-| skipEmptyNavbar                      | Boolean | `true`  | Do not add item to navbar if directory is empty.                                                 |
-| multipleSideBar                      | Boolean | `true`  | Create multiple sidebars if there are navbar items.                                              |
-| addReadMeToFirstGroup                | Boolean | `true`  | Add README.md into first group of sidebar. (vuepress website's behaviour)                        |
-| mixDirectoriesAndFilesAlphabetically | Boolean | `true`  | Add directories to alphabetic positions between files. (i.e. `01-file`, `02-folder`, `03-file` ) |
-| pinyinNav                            | Boolean | `false` | Translate chinese nav to pinyin.                                                                 |
+| Param                                | Type     | Default | Description                                                                                      |
+| ------------------------------------ | -------- | ------- | ------------------------------------------------------------------------------------------------ |
+| stripNumbers                         | Boolean  | `true`  | Remove number prefixes from directory names where it helps sorting.                              |
+| maxLevel                             | Number   | `2`     | Maximum level of recursion for subdirectory traversing.                                          |
+| navPrefix                            | String   | `nav`   | Prefix for directories for navbar and mulitple sidebars.                                         |
+| skipEmptySidebar                     | Boolean  | `true`  | Do not add item to sidebar if directory is empty.                                                |
+| skipEmptyNavbar                      | Boolean  | `true`  | Do not add item to navbar if directory is empty.                                                 |
+| multipleSideBar                      | Boolean  | `true`  | Create multiple sidebars if there are navbar items.                                              |
+| addReadMeToFirstGroup                | Boolean  | `true`  | Add README.md into first group of sidebar. (vuepress website's behaviour)                        |
+| mixDirectoriesAndFilesAlphabetically | Boolean  | `true`  | Add directories to alphabetic positions between files. (i.e. `01-file`, `02-folder`, `03-file` ) |
+| pinyinNav                            | Boolean  | `false` | Translate chinese nav to pinyin.                                                                 |
+| filter                               | Function |         | Fİlter function to filter files. Front Matter mate data is passed as an object.                  |

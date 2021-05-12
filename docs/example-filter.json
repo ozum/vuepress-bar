@@ -1,0 +1,7 @@
+{
+  "nav": [],
+  "sidebar": [
+    { "title": "Guide", "children": ["01.guide/"] },
+    { "title": "Api", "children": ["02.api/help"] }
+  ]
+}
