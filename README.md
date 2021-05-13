@@ -167,8 +167,10 @@ module.exports = {
 
 Use YAML meta data (Front Matter).
 
+**CAUTION if you use "Theme API" and filter pages in the `ready` function:** The filter option has to be the same as what is in the `ready` function or there will be an error because the ready function deletes the pages.
+
 ```ts
-const { nav, sidebar } = getConfig({ filter: (meta) => { meta.draft !== true } });
+const { nav, sidebar } = getConfig({ filter: (meta) => meta.draft !== true });
 ```
 
 # Notes
@@ -188,4 +190,4 @@ const { nav, sidebar } = getConfig({ filter: (meta) => { meta.draft !== true } }
 | addReadMeToFirstGroup                | Boolean  | `true`  | Add README.md into first group of sidebar. (vuepress website's behaviour)                        |
 | mixDirectoriesAndFilesAlphabetically | Boolean  | `true`  | Add directories to alphabetic positions between files. (i.e. `01-file`, `02-folder`, `03-file` ) |
 | pinyinNav                            | Boolean  | `false` | Translate chinese nav to pinyin.                                                                 |
-| filter                               | Function |         | Fİlter function to filter files. Front Matter mate data is passed as an object.                  |
+| filter                               | Function |         | Fİlter function to filter files. Front Matter meta data is passed as an object.                  |
