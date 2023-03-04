@@ -15,7 +15,15 @@ module.exports = { themeConfig: { nav, sidebar } };
 
 # Usage
 
-## 1. Get Menu & Bar Configuration
+## 1. Install
+
+```bash
+npm install vuepress-bar -D
+# or:
+# yarn add vuepress-bar -D
+```
+
+## 2. Get Menu & Bar Configuration
 
 ```js
 // .vuepress/config.js
@@ -23,7 +31,7 @@ const { nav, sidebar } = getConfig(options); // Use default location of `.vuepre
 const { nav, sidebar } = getConfig("path/to/.vuepress/..", options); // Point to *parent* dir of `.vuepress`.
 ```
 
-## 2. Merge with VuePress Configuration
+## 3. Merge with VuePress Configuration
 
 ### Alternative 1: No Modification
 
