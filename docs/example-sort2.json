@@ -1,0 +1,19 @@
+{
+  "nav": [],
+  "sidebar": [
+    {
+      "title": "Section",
+      "children": [
+        {
+          "title": "A",
+          "children": ["01-section/a/file"]
+        },
+        "01-section/b"
+      ]
+    },
+    {
+      "children": ["02-section/file"],
+      "title": "Section"
+    }
+  ]
+}
